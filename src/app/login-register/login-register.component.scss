@@ -1,0 +1,55 @@
+$borderWidth: 30vw;
+$borderHeight: 34vh;
+
+body {
+  width: 100px;
+}
+
+.container {
+  max-width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background-color: #549dfceb;
+
+  @media screen {
+    max-width: 100vw;
+  }
+}
+
+form input:first-child {
+  margin-top: 1rem;
+}
+
+input {
+  border-radius: 30px;
+}
+
+.pre-form-section {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translateX(-50%);
+}
+
+.form-section {
+  position: relative;
+  border: rgb(115, 6, 6) 2px solid;
+  background-color: white;
+  border-radius: 50px;
+  padding: 40px;
+  width: $borderWidth;
+  height: $borderHeight;
+}
+
+.header {
+  text-align: center;
+  font-size: 24px;
+  background: linear-gradient(to right, red, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.divide-buttons {
+  display: flex;
+  justify-content: space-between;
+}

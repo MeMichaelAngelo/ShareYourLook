@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row pre-form-section">
+    <form class="form-section" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <div class="header">Log in and share your look</div>
+      <div>
+        <input
+          class="input-group mb-3"
+          formControlName="email"
+          placeholder="Enter email or login"
+        />
+      </div>
+      <div>
+        <input
+          class="input-group mb-3"
+          formControlName="password"
+          placeholder="Password"
+          type="password"
+          aria-describedby="password"
+        />
+      </div>
+      <div class="divide-buttons">
+        <button class="btn btn-link" (click)="loginUser()">Submit</button>
+        <button class="btn btn-primary" (click)="event($event)">EVENT</button>
+      </div>
+    </form>
+  </div>
+</div>
