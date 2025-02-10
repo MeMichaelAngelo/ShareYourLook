@@ -9,8 +9,6 @@ import { Observable, catchError, map } from 'rxjs';
 export class LogInService {
   constructor(private http: HttpClient) {}
 
-  isLoggedIn: boolean = false;
-
   getAllAccs() {
     return this.http.get<User[]>('http://localhost:3000/login-page/all');
   }
@@ -21,11 +19,9 @@ export class LogInService {
       .pipe(
         map((response) => {
           localStorage.setItem('JWT_TOKEN', response.token);
-          this.isLoggedIn = true;
           return response;
         }),
         catchError((err) => {
-          this.isLoggedIn = false;
           return err;
         })
       );
@@ -33,7 +29,6 @@ export class LogInService {
 
   logout(): void {
     localStorage.removeItem('JWT_TOKEN');
-    this.isLoggedIn = false;
   }
 
   registerNewUser(newUser: User) {
