@@ -35,22 +35,25 @@ export class LoginRegisterComponent implements OnInit {
 
   initForm(): void {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
   }
 
   loginUser(): void {
-    if (!this.loginForm?.valid) {
-    }
-    console.log('Valid', this.loginForm.value);
-    this.logInService.logInUser({
-      ...this.loginForm.value,
-    });
-    this.router.navigate(['/']);
+    if (!this.loginForm?.valid) return;
+    console.log('start');
+    this.logInService
+      .logInUser({
+        ...this.loginForm.value,
+      })
+      .subscribe(() => {
+        console.log('hehe');
+        this.router.navigate(['/']);
+      });
   }
 
-  event(event: Event) {
-    console.log(event);
+  registration(): void {
+    this.router.navigate(['/register']);
   }
 }
